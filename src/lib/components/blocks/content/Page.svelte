@@ -4,20 +4,25 @@
     import { page } from "$app/state";
 
     import * as Sidebar from "$lib/components/ui/sidebar";
-    import { Button, type ButtonSize } from "$lib/components/ui/button";
+    import { Button, type ButtonSize, type ButtonVariant } from "$lib/components/ui/button";
     import { Separator } from "$lib/components/ui/separator";
     import * as Breadcrumb from "$lib/components/ui/breadcrumb";
+    import { toggleMode } from "mode-watcher";
 
     import { items } from "$lib/components/blocks/navigation/sidebar/NavItems";
     import favicon from "$lib/assets/favicon.svg";
     import { APP_NAME } from "$lib/components/constants";
 
+    import SunIcon from "@lucide/svelte/icons/sun";
+    import MoonIcon from "@lucide/svelte/icons/moon";
+
     type ButtonType = {
         text: string;
         href: string;
-        size: ButtonSize;
+        size?: ButtonSize;
         target: string;
         icon?: Snippet;
+        variant?: ButtonVariant;
     };
 
     interface Props {
@@ -111,8 +116,8 @@
             {#each buttons as button}
                 {@const Icon = button.icon}
                 <Button
-                    variant="ghost"
-                    size={button.size}
+                    variant={button.variant ?? "ghost"}
+                    size={button.size ?? "default"}
                     class="dark:text-foreground hidden sm:flex"
                     target={button.target}
                     href={button.href}
@@ -124,6 +129,15 @@
                 </Button>
             {/each}
             {@render buttonsSnippet?.()}
+            <Button onclick={toggleMode} variant="outline" size="icon">
+                <SunIcon
+                    class="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all! dark:scale-0 dark:-rotate-90"
+                />
+                <MoonIcon
+                    class="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all! dark:scale-100 dark:rotate-0"
+                />
+                <span class="sr-only">Toggle theme</span>
+            </Button>
         </div>
     </div>
 </header>
