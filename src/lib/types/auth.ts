@@ -1,6 +1,13 @@
+export enum UserRank {
+    User = "user",
+    Admin = "admin",
+    Dev = "dev",
+}
 export interface User {
     id: string;
     email: string;
     name: string;
-    avatar_url?: string;
+    login: string;
+    avatar: string;
+    rank: UserRank;
 }
