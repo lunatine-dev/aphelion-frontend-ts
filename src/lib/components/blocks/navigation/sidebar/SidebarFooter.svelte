@@ -6,8 +6,13 @@
     import DotsVerticalIcon from "@tabler/icons-svelte/icons/dots-vertical";
     import LogoutIcon from "@tabler/icons-svelte/icons/logout";
     import SettingsIcon from "@tabler/icons-svelte/icons/settings";
+    import type { User } from "$lib/types/auth";
 
-    let { user } = $props();
+    interface Props {
+        user: User;
+    }
+
+    let { user }: Props = $props();
     const sidebar = Sidebar.useSidebar();
 </script>
 

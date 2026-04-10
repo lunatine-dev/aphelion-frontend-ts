@@ -12,7 +12,7 @@
         <SidebarHeader />
     </Sidebar.Header>
     <Sidebar.Content>
-        <SidebarContent />
+        <SidebarContent {user} />
     </Sidebar.Content>
     <Sidebar.Footer>
         <SidebarFooter {user} />

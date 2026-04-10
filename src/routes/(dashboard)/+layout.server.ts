@@ -3,6 +3,7 @@ export async function load({}) {
         login: "john-doe",
         name: "John Doe",
         avatar: "https://placehold.co/200x200",
+        rank: "dev",
     };
     return { user };
 }
