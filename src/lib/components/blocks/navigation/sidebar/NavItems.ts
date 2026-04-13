@@ -8,8 +8,6 @@ import IconLayoutGrid from "@tabler/icons-svelte/icons/layout-grid";
 import IconLogs from "@tabler/icons-svelte/icons/logs";
 
 import IconServer from "@tabler/icons-svelte/icons/server";
-import IconGauge from "@tabler/icons-svelte/icons/gauge";
-import IconTrash from "@tabler/icons-svelte/icons/trash";
 
 import IconReport from "@tabler/icons-svelte/icons/report";
 import IconSettings from "@tabler/icons-svelte/icons/settings";
