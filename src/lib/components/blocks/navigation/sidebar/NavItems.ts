@@ -26,7 +26,11 @@ export const items: NavConfig = [
                 url: "/apps",
                 icon: IconLayoutGrid,
             },
-            { title: "Deployments", url: "/deployments", icon: IconGitCherryPick },
+            {
+                title: "Deployments",
+                url: "/deployments",
+                icon: IconGitCherryPick,
+            },
             { title: "Logs", url: "/logs", icon: IconLogs },
         ],
     },
