@@ -21,18 +21,13 @@ export const items: NavConfig = [
                 url: "/",
                 icon: IconDashboard,
             },
-        ],
-    },
-    {
-        title: "Applications",
-        items: [
             {
-                title: "Projects",
-                url: "/apps/projects",
+                title: "Applications",
+                url: "/apps",
                 icon: IconLayoutGrid,
             },
-            { title: "Deployments", url: "/apps/deployments", icon: IconGitCherryPick },
-            { title: "Logs", url: "/apps/logs", icon: IconLogs },
+            { title: "Deployments", url: "/deployments", icon: IconGitCherryPick },
+            { title: "Logs", url: "/logs", icon: IconLogs },
         ],
     },
     {
