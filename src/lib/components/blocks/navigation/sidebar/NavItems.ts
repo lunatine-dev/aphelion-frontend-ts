@@ -1,6 +1,18 @@
 import type { NavConfig } from "$lib/types/nav";
-import IconDashboard from "@tabler/icons-svelte/icons/dashboard";
 import { UserRank } from "$lib/types/auth";
+
+import IconDashboard from "@tabler/icons-svelte/icons/dashboard";
+
+import IconGitCherryPick from "@tabler/icons-svelte/icons/git-cherry-pick";
+import IconLayoutGrid from "@tabler/icons-svelte/icons/layout-grid";
+import IconLogs from "@tabler/icons-svelte/icons/logs";
+
+import IconServer from "@tabler/icons-svelte/icons/server";
+import IconGauge from "@tabler/icons-svelte/icons/gauge";
+import IconTrash from "@tabler/icons-svelte/icons/trash";
+
+import IconReport from "@tabler/icons-svelte/icons/report";
+import IconSettings from "@tabler/icons-svelte/icons/settings";
 
 export const items: NavConfig = [
     {
@@ -14,24 +26,27 @@ export const items: NavConfig = [
         ],
     },
     {
-        title: "Admin",
+        title: "Applications",
         items: [
             {
-                title: "Protected Route",
-                url: "/protected",
-                icon: IconDashboard,
+                title: "Overview",
+                url: "/apps/overview",
+                icon: IconLayoutGrid,
             },
+            { title: "Deployments", url: "/apps/deployments", icon: IconGitCherryPick },
+            { title: "Logs", url: "/apps/logs", icon: IconLogs },
         ],
-        ranks: [UserRank.Admin, UserRank.Dev],
     },
     {
-        title: "Developer",
+        title: "Infrastructure",
+        items: [{ title: "Nodes", url: "/infra/nodes", icon: IconServer }],
+        ranks: [UserRank.Dev],
+    },
+    {
+        title: "System",
         items: [
-            {
-                title: "Protected Route",
-                url: "/protected",
-                icon: IconDashboard,
-            },
+            { title: "Audit Log", url: "/system/audit", icon: IconReport },
+            { title: "Settings", url: "/system/settings", icon: IconSettings },
         ],
         ranks: [UserRank.Dev],
     },
