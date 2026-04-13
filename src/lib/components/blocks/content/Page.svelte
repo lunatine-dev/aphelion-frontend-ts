@@ -92,7 +92,7 @@
         <Sidebar.Trigger class="-ml-1" />
         <Separator orientation="vertical" class="mx-2 data-[orientation=vertical]:h-4" />
         {#if !autoCrumbs.length}
-            <h1 class="text-base font-medium">
+            <h1 class="text-base font-medium font-heading">
                 {title ?? "Title"}
             </h1>
         {:else}
