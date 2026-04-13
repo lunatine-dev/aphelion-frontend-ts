@@ -37,6 +37,11 @@
 
     let { children, title, buttons = [], extraClasses, classOverride, blank = false, buttonsSnippet }: Props = $props();
 
+    const crumbAliases: Record<string, string> = {
+        infra: "Infrastructure",
+        apps: "Applications",
+    };
+
     const autoCrumbs = $derived.by(() => {
         const pathname = page.url.pathname;
         const segments = pathname.split("/").filter(Boolean);
@@ -94,14 +99,15 @@
             <Breadcrumb.Root>
                 <Breadcrumb.List>
                     {#each autoCrumbs as crumb, index}
+                        {@const title = crumbAliases[crumb.title.toLowerCase()] ?? crumb.title}
                         <Breadcrumb.Item>
                             {#if crumb.href}
                                 <Breadcrumb.Link href={crumb.href}>
-                                    {crumb.title}
+                                    {title}
                                 </Breadcrumb.Link>
                             {:else}
                                 <Breadcrumb.Page class="flex items-center gap-1">
-                                    {crumb.title}
+                                    {title}
                                 </Breadcrumb.Page>
                             {/if}
                         </Breadcrumb.Item>
