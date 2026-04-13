@@ -29,8 +29,8 @@ export const items: NavConfig = [
         title: "Applications",
         items: [
             {
-                title: "Overview",
-                url: "/apps/overview",
+                title: "Projects",
+                url: "/apps/projects",
                 icon: IconLayoutGrid,
             },
             { title: "Deployments", url: "/apps/deployments", icon: IconGitCherryPick },
