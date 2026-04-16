@@ -18,7 +18,7 @@
     const repositories = Array.from({ length: 8 }, () => structuredClone(PROJECT_TEMPLATE));
 
     const navigate = (app_name: string, path: string) => {
-        return goto(`/apps/${app_name}/${path}`);
+        return goto(`/projects/${app_name}/${path}`);
     };
 </script>
 

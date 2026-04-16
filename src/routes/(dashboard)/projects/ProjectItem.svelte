@@ -35,15 +35,15 @@
             <div class="flex items-start justify-between">
                 <div class="flex items-center gap-3">
                     <div
-                        class="flex h-10 w-10 items-center justify-center rounded-lg bg-orange-950/30 border border-orange-500/20"
+                        class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/30 border border-primary/60"
                     >
-                        <IconBox class="text-orange-600" />
+                        <IconBox class="text-primary" />
                     </div>
 
                     <div class="flex flex-col leading-tight">
                         <a
-                            href="/apps/{name}"
-                            class="text-[15px] font-semibold tracking-tight text-white after:absolute after:inset-0 after:z-0"
+                            href="/projects/{name}"
+                            class="text-[15px] font-semibold tracking-tight text-black after:absolute after:inset-0 after:z-0 dark:text-white"
                         >
                             {name}
                         </a>
