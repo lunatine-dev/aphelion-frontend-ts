@@ -26,5 +26,7 @@
     <div>
         <SubNav />
     </div>
-    {@render children?.()}
+    <div class="px-4 py-4 lg:px-6">
+        {@render children?.()}
+    </div>
 </Page>

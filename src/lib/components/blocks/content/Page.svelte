@@ -172,7 +172,7 @@
             <div
                 class={classOverride
                     ? classOverride
-                    : `flex flex-col gap-4 py-4 md:gap-6 md:py-6 ${extraClasses} ${padding ? "container mx-auto px-32" : ""}`}
+                    : `flex flex-col justify-center gap-4 py-4 md:gap-6 md:py-6 ${extraClasses} ${padding ? "px-4 lg:px-6" : ""}`}
             >
                 {@render children?.()}
             </div>
