@@ -134,3 +134,49 @@
     }
 }
 
+
+.aphelion-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-neutral-300) transparent;
+}
+
+:global(.dark) .aphelion-scrollbar {
+    scrollbar-color: var(--color-neutral-800) transparent;
+}
+.aphelion-scrollbar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.aphelion-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+.aphelion-scrollbar::-webkit-scrollbar-thumb {
+    background-color: var(--color-neutral-300);
+    border-radius: 20px;
+}
+:global(.dark) .aphelion-scrollbar::-webkit-scrollbar-thumb {
+    background-color: var(--color-neutral-800);
+}
+.aphelion-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-neutral-400);
+}
+:global(.dark) .aphelion-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-neutral-700);
+}
+
+@theme {
+    /* Targets large laptops and smaller desktop monitors */
+    --breakpoint-3xl: 112rem;   /* 1792px */
+
+    /* --- Full HD (1080p) Tier --- */
+    --breakpoint-4xl: 120rem;   /* 1920px */
+    --breakpoint-fhd: 120rem;
+
+    /* --- Quad HD (1440p / 2K) Tier --- */
+    --breakpoint-5xl: 160rem;   /* 2560px */
+    --breakpoint-qhd: 160rem;
+
+    /* --- Ultra HD (2160p / 4K) Tier --- */
+    --breakpoint-6xl: 240rem;   /* 3840px */
+    --breakpoint-uhd: 240rem;
+}
