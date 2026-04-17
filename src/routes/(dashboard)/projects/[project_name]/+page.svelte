@@ -6,8 +6,6 @@
     const PAGE_TITLE = page.params.project_name ?? "Application";
 </script>
 
-<Page title={PAGE_TITLE}>
-    <div class="relative flex flex-col gap-4 overflow-auto px-4 lg:px-6">
-        <h1>{PAGE_TITLE}</h1>
-    </div>
+<Page title={PAGE_TITLE} padding={true}>
+    <h1>{PAGE_TITLE}</h1>
 </Page>

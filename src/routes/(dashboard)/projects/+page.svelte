@@ -12,20 +12,18 @@
     const repositories = Array.from({ length: 12 }, () => structuredClone(PROJECT_TEMPLATE));
 </script>
 
-<Page title={PAGE_TITLE}>
+<Page title={PAGE_TITLE} padding={true}>
     {#snippet buttonsSnippet()}
-        <Button>
+        <Button href="/projects/new">
             <IconPlus />
             New Project
         </Button>
     {/snippet}
-    <div class="relative flex flex-col gap-4 overflow-auto px-4 lg:px-6">
-        <div
-            class="grid grid-cols-1 gap-4 px-4 lg:px-6 @xl/main:grid-cols-2 @5xl/main:grid-cols-4 overflow-hidden py-1"
-        >
-            {#each repositories as repo, i}
-                <ProjectItem {...repo} index={i} />
-            {/each}
-        </div>
+    <div
+        class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 fhd:grid-cols-4 qhd:grid-cols-6 uhd:grid-cols-8 py-1"
+    >
+        {#each repositories as repo, i}
+            <ProjectItem {...repo} index={i} />
+        {/each}
     </div>
 </Page>

@@ -3,9 +3,7 @@ import { UserRank } from "$lib/types/auth";
 
 import IconDashboard from "@tabler/icons-svelte/icons/dashboard";
 
-import IconGitCherryPick from "@tabler/icons-svelte/icons/git-cherry-pick";
 import IconLayoutGrid from "@tabler/icons-svelte/icons/layout-grid";
-import IconLogs from "@tabler/icons-svelte/icons/logs";
 
 import IconServer from "@tabler/icons-svelte/icons/server";
 
@@ -26,12 +24,6 @@ export const items: NavConfig = [
                 url: "/projects",
                 icon: IconLayoutGrid,
             },
-            {
-                title: "Deployments",
-                url: "/deployments",
-                icon: IconGitCherryPick,
-            },
-            { title: "Logs", url: "/logs", icon: IconLogs },
         ],
     },
     {

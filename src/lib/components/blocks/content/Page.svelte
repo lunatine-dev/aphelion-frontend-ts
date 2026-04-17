@@ -33,9 +33,19 @@
         classOverride?: string;
         blank?: boolean;
         buttonsSnippet?: Snippet;
+        padding?: boolean;
     }
 
-    let { children, title, buttons = [], extraClasses, classOverride, blank = false, buttonsSnippet }: Props = $props();
+    let {
+        children,
+        title,
+        buttons = [],
+        extraClasses,
+        classOverride,
+        blank = false,
+        buttonsSnippet,
+        padding = false,
+    }: Props = $props();
 
     const crumbAliases: Record<string, string> = {
         infra: "Infrastructure",
@@ -151,13 +161,19 @@
 {#if !blank}
     <div class="flex flex-1 flex-col">
         <div class="@container/main flex flex-1 flex-col gap-2">
-            <div class={classOverride ? classOverride : `flex flex-col gap-4 py-4 md:gap-6 md:py-6 ${extraClasses}`}>
+            <div
+                class={classOverride
+                    ? classOverride
+                    : `flex flex-col gap-4 py-4 md:gap-6 md:py-6 ${extraClasses} ${padding ? "container mx-auto px-32" : ""}`}
+            >
                 {@render children?.()}
             </div>
         </div>
     </div>
 {:else}
     <div class="flex flex-1 flex-col">
-        {@render children?.()}
+        <div class={padding ? `relative flex flex-col gap-4 overflow-auto px-4 lg:px-6 @container` : ""}>
+            {@render children?.()}
+        </div>
     </div>
 {/if}
