@@ -2,8 +2,13 @@
     import { page } from "$app/state";
     import { fade } from "svelte/transition";
 
-    import * as NavigationMenu from "$lib/components/ui/navigation-menu";
     import { IsMobile } from "$lib/hooks/is-mobile.svelte";
+    import { buttonVariants } from "$lib/components/ui/button/index";
+
+    import * as NavigationMenu from "$lib/components/ui/navigation-menu";
+    import * as Sheet from "$lib/components/ui/sheet";
+    import * as Accordion from "$lib/components/ui/accordion";
+    import { Button } from "$lib/components/ui/button";
 
     import IconGitCherryPick from "@tabler/icons-svelte/icons/git-cherry-pick";
     import IconLogs from "@lucide/svelte/icons/logs";
@@ -11,9 +16,14 @@
     import IconLayoutGrid from "@tabler/icons-svelte/icons/layout-grid";
     import IconBrandGit from "@tabler/icons-svelte/icons/brand-git";
     import IconSettings from "@tabler/icons-svelte/icons/settings";
+    import IconMenu2 from "@tabler/icons-svelte/icons/menu-2";
+
+    let open = $state(false);
 
     const projectMatch = $derived(page.url.pathname.match(/\/projects\/[^/]+/));
     const projectBase = $derived(projectMatch ? projectMatch[0] : "");
+    const title = $derived(page.url.pathname.split("/").pop());
+    const projectName = $derived(page.params.project_name);
 
     const isMobile = new IsMobile();
 
@@ -120,6 +130,67 @@
             {/each}
         </NavigationMenu.List>
     </NavigationMenu.Root>
+</div>
+
+<div class="flex items-center md:hidden px-4 h-12 border-b bg-background">
+    <Sheet.Root bind:open>
+        <Sheet.Trigger class={buttonVariants({ variant: "outline" })}>
+            <IconMenu2 size={20} />
+            <span class="capitalize">Project Settings</span>
+        </Sheet.Trigger>
+
+        <Sheet.Content side="left" class="w-72 p-0">
+            <div class="flex flex-col h-full py-6">
+                <div class="px-6 mb-6">
+                    <h2 class="text-lg font-semibold tracking-tight">{projectName}</h2>
+                </div>
+
+                <nav class="flex-1 px-3 space-y-1">
+                    {#each items as item}
+                        {@const Icon = item.icon}
+                        {#if item.children}
+                            <Accordion.Root type="single">
+                                <Accordion.Item value={item.title} class="border-none">
+                                    <Accordion.Trigger
+                                        class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:bg-accent text-muted-foreground hover:text-foreground"
+                                    >
+                                        {#if Icon}<Icon size={18} />{/if}
+                                        {item.title}
+                                    </Accordion.Trigger>
+                                    <Accordion.Content class="pt-1 pb-0 pl-9 space-y-1">
+                                        {#each item.children as child}
+                                            {@const active = isActive(child.path)}
+                                            <a
+                                                href="{projectBase}{child.path}"
+                                                onclick={() => (open = false)}
+                                                class="block px-3 py-2 text-sm font-medium rounded-md {active
+                                                    ? 'bg-accent text-foreground'
+                                                    : 'text-muted-foreground hover:text-foreground'}"
+                                            >
+                                                {child.title}
+                                            </a>
+                                        {/each}
+                                    </Accordion.Content>
+                                </Accordion.Item>
+                            </Accordion.Root>
+                        {:else}
+                            {@const active = isActive(item.path)}
+                            <a
+                                href="{projectBase}{item.path}"
+                                onclick={() => (open = false)}
+                                class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md transition-colors {active
+                                    ? 'bg-accent text-foreground'
+                                    : 'text-muted-foreground hover:text-foreground hover:bg-accent'}"
+                            >
+                                {#if item.icon}<item.icon size={18} />{/if}
+                                {item.title}
+                            </a>
+                        {/if}
+                    {/each}
+                </nav>
+            </div>
+        </Sheet.Content>
+    </Sheet.Root>
 </div>
 
 <style>
