@@ -3,7 +3,7 @@
     import type { Snippet } from "svelte";
 
     import Page from "$lib/components/blocks/content/Page.svelte";
-    import SubNav from "$lib/components/blocks/navigation/subnav/SubNav.svelte";
+    import SubNav from "./SubNav.svelte";
 
     const projectSlug = $derived(page.params.project_name);
     const title = $derived(() => {
