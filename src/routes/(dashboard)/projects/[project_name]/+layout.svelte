@@ -5,15 +5,19 @@
     import Page from "$lib/components/blocks/content/Page.svelte";
     import SubNav from "./SubNav.svelte";
 
+    const titleMap: Record<string, string> = {
+        "/deployments": "Deployments",
+        "/logs": "Logs",
+        "/environment": "Environment Variables",
+        "/git": "Git Repository",
+    };
+
     const projectSlug = $derived(page.params.project_name);
     const title = $derived(() => {
         const path = page.url.pathname;
+        const match = Object.entries(titleMap).find(([key]) => path.endsWith(key));
 
-        if (path.endsWith("/deployments")) return "Deployments";
-        if (path.endsWith("/logs")) return "Logs";
-        if (path.endsWith("/environment")) return "Environment Settings";
-
-        return projectSlug ? projectSlug : "Overview";
+        return match ? match[1] : projectSlug || "Overview";
     });
 
     interface Props {
