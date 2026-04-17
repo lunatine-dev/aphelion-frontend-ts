@@ -34,6 +34,7 @@
         blank?: boolean;
         buttonsSnippet?: Snippet;
         padding?: boolean;
+        border?: boolean;
     }
 
     let {
@@ -45,6 +46,7 @@
         blank = false,
         buttonsSnippet,
         padding = false,
+        border = true,
     }: Props = $props();
 
     const crumbAliases: Record<string, string> = {
@@ -55,7 +57,6 @@
     const autoCrumbs = $derived.by(() => {
         const pathname = page.url.pathname;
         const segments = pathname.split("/").filter(Boolean);
-
         const result = pathname !== "/" ? [{ title: "Dashboard", href: "/" }] : [];
 
         let cumulativePath = "";
@@ -66,12 +67,8 @@
 
             let foundTitle = "";
             let hasUrlInConfig = false;
-
             for (const group of items) {
-                if (group.title.toLowerCase() === segment.toLowerCase()) {
-                    foundTitle = group.title;
-                }
-
+                if (group.title.toLowerCase() === segment.toLowerCase()) foundTitle = group.title;
                 const item = group.items.find((i) => i.url === cumulativePath);
                 if (item) {
                     foundTitle = item.title;
@@ -79,11 +76,20 @@
                 }
             }
 
-            const displayTitle = foundTitle || segment.replace(/-/g, " ").replace(/\b\w/g, (l) => l.toUpperCase());
+            const displayTitle = foundTitle || segment;
+
+            const isProjectIdSegment = index === 1 && segments[0] === "projects";
+
+            let finalHref = "";
+            if (isProjectIdSegment) {
+                finalHref = !isLast ? cumulativePath : "";
+            } else if (!isLast && hasUrlInConfig) {
+                finalHref = cumulativePath;
+            }
 
             result.push({
                 title: isLast && title ? title : displayTitle,
-                href: !isLast && hasUrlInConfig ? cumulativePath : "",
+                href: finalHref,
             });
         });
 
@@ -96,7 +102,9 @@
 </svelte:head>
 
 <header
-    class="h-(--header-height) group-has-data-[collapsible=icon]/sidebar-wrapper:h-(--header-height) flex shrink-0 items-center gap-2 border-b transition-[width,height] ease-linear"
+    class="h-(--header-height) group-has-data-[collapsible=icon]/sidebar-wrapper:h-(--header-height) flex shrink-0 items-center gap-2 {border
+        ? 'border-b'
+        : false} transition-[width,height] ease-linear"
 >
     <div class="flex w-full items-center gap-1 px-4 lg:gap-2 lg:px-6">
         <Sidebar.Trigger class="-ml-1" />
