@@ -30,7 +30,7 @@
     <div>
         <SubNav />
     </div>
-    <div class="px-4 py-4 lg:px-6">
+    <div class="p-8">
         {@render children?.()}
     </div>
 </Page>
