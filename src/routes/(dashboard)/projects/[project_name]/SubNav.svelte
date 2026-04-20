@@ -31,11 +31,15 @@
         { title: "Overview", path: "", icon: IconLayoutGrid },
         { title: "Deployments", path: "/deployments", icon: IconGitCherryPick },
         { title: "Logs", path: "/logs", icon: IconLogs },
-        { title: "Git", path: "/git", icon: IconBrandGit },
         {
             title: "Settings",
             icon: IconSettings,
             children: [
+                {
+                    title: "Git Repository",
+                    path: "/git",
+                    icon: IconBrandGit,
+                },
                 {
                     title: "Environment Variables",
                     path: "/environment",
@@ -84,7 +88,7 @@
                                 ></div>
                             {/if}
                         </NavigationMenu.Trigger>
-                        <NavigationMenu.Content>
+                        <NavigationMenu.Content class="rounded-t-none!">
                             <ul class="grid w-50 gap-4 p-2">
                                 <li>
                                     {#each item.children as child (child.title)}
