@@ -22,7 +22,7 @@
 
     interface Props {
         language: string;
-        text: string;
+        text?: string;
         size?: string;
         className?: string;
     }
