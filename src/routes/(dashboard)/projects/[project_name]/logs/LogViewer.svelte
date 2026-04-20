@@ -26,7 +26,7 @@
     });
 </script>
 
-<div class="flex flex-col bg-[#09090b] rounded-none border-none overflow-scroll-x h-[60vh]">
+<div class="flex flex-col bg-[#09090b] rounded-none border-none overflow-scroll-x h-[40vh]">
     <div bind:this={viewport} class="flex-1 overflow-y-auto p-6 font-mono text-[13px] leading-relaxed">
         {#each logs as log}
             <div class="flex gap-4 py-0.5 group">
