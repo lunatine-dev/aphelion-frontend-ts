@@ -76,7 +76,7 @@
         </Table.Header>
         <Table.Body>
             {#each deployments as dep}
-                <Table.Row class="border-zinc-900 hover:bg-zinc-950/50 transition-colors group">
+                <Table.Row class="border-zinc-900 hover:bg-zinc-950/50 transition-colors group/row">
                     <Table.Cell>
                         <div class="flex flex-col">
                             <span class="text-sm font-bold text-zinc-200">{dep.id}</span>
@@ -95,7 +95,7 @@
 
                     <Table.Cell>
                         <div class="flex items-center gap-2">
-                            <div class="h-2 w-2 rounded-full {statusMap[dep.status] || statusMap.Canceled}"></div>
+                            <div class="h-2 w-2 rounded-full {statusMap[dep?.status] || statusMap.Canceled}"></div>
 
                             <div class="flex flex-col">
                                 <span class="text-xs font-medium text-zinc-300">{dep.status}</span>
@@ -128,7 +128,7 @@
 
                     <Table.Cell>
                         <button
-                            class="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-zinc-900 rounded text-zinc-500 hover:text-zinc-200"
+                            class="opacity-0 group-hover/row:opacity-100 transition-opacity p-1 hover:bg-zinc-900 rounded text-zinc-500 hover:text-zinc-200"
                         >
                             <IconDots size={16} />
                         </button>

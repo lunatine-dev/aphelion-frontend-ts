@@ -30,10 +30,10 @@
 </script>
 
 <Page title={title()} blank={true} border={false}>
-    <div>
+    <div class="relative z-40">
         <SubNav />
     </div>
-    <div class={isFluid ? "" : "p-8"}>
+    <div class="isolate {isFluid ? '' : 'p-8'}">
         {@render children?.()}
     </div>
 </Page>
