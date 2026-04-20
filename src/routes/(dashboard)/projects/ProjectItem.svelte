@@ -13,6 +13,7 @@
     import IconAlertCircle from "@tabler/icons-svelte/icons/alert-circle";
     import IconGitBranch from "@tabler/icons-svelte/icons/git-branch";
     import IconBox from "@tabler/icons-svelte/icons/box";
+    import LanguageIcon from "$lib/components/LanguageIcon.svelte";
 
     interface Props {
         name: string;
@@ -25,9 +26,10 @@
             date: Date;
         };
         index: number;
+        language: string;
     }
 
-    let { name, repositoryName, branch, lastCommit, index }: Props = $props();
+    let { name, repositoryName, branch, lastCommit, index, language }: Props = $props();
 </script>
 
 <div in:fly={{ y: 20, duration: 500, delay: index * 100 }}>
@@ -35,10 +37,8 @@
         <div class="px-4 py-1">
             <div class="flex items-start justify-between">
                 <div class="flex items-center gap-3">
-                    <div
-                        class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/30 border border-primary/60"
-                    >
-                        <IconBox class="text-primary  group-hover:-rotate-12 transition-transform" />
+                    <div class="flex h-10 w-10 items-center justify-center">
+                        <LanguageIcon {language} className="group-hover:-rotate-6 transition transform" size="2em" />
                     </div>
 
                     <div class="flex flex-col leading-tight">

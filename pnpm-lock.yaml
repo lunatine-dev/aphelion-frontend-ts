@@ -8,12 +8,18 @@ importers:
 
   .:
     dependencies:
+      '@devicon/svelte':
+        specifier: ^0.0.4
+        version: 0.0.4
       d3-scale:
         specifier: ^4.0.2
         version: 4.0.2
       d3-shape:
         specifier: ^3.2.0
         version: 3.2.0
+      devicon:
+        specifier: ^2.17.0
+        version: 2.17.0
       mode-watcher:
         specifier: ^1.1.0
         version: 1.1.0(svelte@5.55.3(@typescript-eslint/types@8.58.1))
@@ -160,6 +166,9 @@ packages:
 
   '@dagrejs/graphlib@3.0.4':
     resolution: {integrity: sha512-HxZ7fCvAwTLCWCO0WjDkzAFQze8LdC6iOpKbetDKHIuDfIgMlIzYzqZ4nxwLlclQX+3ZVeZ1K2OuaOE2WWcyOg==}
+
+  '@devicon/svelte@0.0.4':
+    resolution: {integrity: sha512-UvbD3RSr7sQq20cpq+YeeN4MqjbEO2WOtQ1X3Qim3umcPILLeUmJrOPYcrK1fXPDWWbHWInxfyRDIdrQ/kDoiw==}
 
   '@emnapi/core@1.9.2':
     resolution: {integrity: sha512-UC+ZhH3XtczQYfOlu3lNEkdW/p4dsJ1r/bP7H8+rhao3TTTMO1ATq/4DdIi23XuGoFY+Cz0JmCbdVl0hz9jZcA==}
@@ -998,6 +1007,9 @@ packages:
   devalue@5.7.1:
     resolution: {integrity: sha512-MUbZ586EgQqdRnC4yDrlod3BEdyvE4TapGYHMW2CiaW+KkkFmWEFqBUaLltEZCGi0iFXCEjRF0OjF0DV2QHjOA==}
 
+  devicon@2.17.0:
+    resolution: {integrity: sha512-2nKUdjobJlmRSaCHa50PGsVq0VDURnq9gVzQoJggsM/NKN0tLhC/Uq2zmy2pH36Q/1q3gvYwp/GjTgv/R0Ysbg==}
+
   enhanced-resolve@5.20.1:
     resolution: {integrity: sha512-Qohcme7V1inbAfvjItgw0EaxVX5q2rdVEZHRBrEQdRZTssLDGsL8Lwrznl8oQ/6kuTJONLaDcGjkNP247XEhcA==}
     engines: {node: '>=10.13.0'}
@@ -1562,6 +1574,8 @@ snapshots:
       '@dagrejs/graphlib': 3.0.4
 
   '@dagrejs/graphlib@3.0.4': {}
+
+  '@devicon/svelte@0.0.4': {}
 
   '@emnapi/core@1.9.2':
     dependencies:
@@ -2220,6 +2234,8 @@ snapshots:
   detect-libc@2.1.2: {}
 
   devalue@5.7.1: {}
+
+  devicon@2.17.0: {}
 
   enhanced-resolve@5.20.1:
     dependencies:

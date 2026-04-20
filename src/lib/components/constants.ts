@@ -13,6 +13,7 @@ const RANDOM_DATA = {
         },
     ],
     users: ["lunatine-dev"],
+    language: ["JavaScript", "TypeScript", "Svelte", "HTML"],
 };
 
 const pick = <T>(arr: T[]): T => arr[Math.floor(Math.random() * arr.length)];
@@ -22,6 +23,7 @@ export const generateProjectTemplates = (count: number) => {
         const name = pick(RANDOM_DATA.name);
         const user = pick(RANDOM_DATA.users);
         const server = pick(RANDOM_DATA.server);
+        const language = pick(RANDOM_DATA.language);
 
         return {
             name: name,
@@ -35,6 +37,7 @@ export const generateProjectTemplates = (count: number) => {
                 date: new Date(),
             },
             id: Math.random() * 1516,
+            language,
         };
     });
 };
