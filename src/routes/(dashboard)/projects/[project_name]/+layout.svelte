@@ -20,7 +20,7 @@
         return match ? match[1] : projectSlug || "Overview";
     });
 
-    const fluidRoutes = ["/deployments", "/logs"];
+    const fluidRoutes = ["/deployments", "/logs", "environment"];
     const isFluid = $derived(fluidRoutes.some((route) => page.url.pathname.endsWith(route)));
 
     interface Props {
