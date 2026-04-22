@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { PROJECT_TEMPLATE } from "$lib/components/constants";
+    import { PROJECT_TEMPLATES } from "$lib/components/constants";
 
     import { Button } from "$lib/components/ui/button";
 
@@ -9,7 +9,6 @@
     import IconPlus from "@tabler/icons-svelte/icons/plus";
 
     const PAGE_TITLE = $state("Projects");
-    const repositories = Array.from({ length: 12 }, () => structuredClone(PROJECT_TEMPLATE));
 </script>
 
 <Page title={PAGE_TITLE} padding={true}>
@@ -22,7 +21,7 @@
     <div
         class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 fhd:grid-cols-4 qhd:grid-cols-6 uhd:grid-cols-8 py-1"
     >
-        {#each repositories as repo, i}
+        {#each PROJECT_TEMPLATES as repo, i (repo.id)}
             <ProjectItem {...repo} index={i} />
         {/each}
     </div>

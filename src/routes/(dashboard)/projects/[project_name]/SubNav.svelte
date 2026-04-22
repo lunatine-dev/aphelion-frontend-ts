@@ -3,7 +3,7 @@
     import { fade } from "svelte/transition";
 
     import { IsMobile } from "$lib/hooks/is-mobile.svelte";
-    import { buttonVariants } from "$lib/components/ui/button/index";
+    import { buttonVariants } from "$lib/components/ui/button";
 
     import * as NavigationMenu from "$lib/components/ui/navigation-menu";
     import * as Sheet from "$lib/components/ui/sheet";
@@ -31,11 +31,15 @@
         { title: "Overview", path: "", icon: IconLayoutGrid },
         { title: "Deployments", path: "/deployments", icon: IconGitCherryPick },
         { title: "Logs", path: "/logs", icon: IconLogs },
-        { title: "Git", path: "/git", icon: IconBrandGit },
         {
             title: "Settings",
             icon: IconSettings,
             children: [
+                {
+                    title: "Git Repository",
+                    path: "/git",
+                    icon: IconBrandGit,
+                },
                 {
                     title: "Environment Variables",
                     path: "/environment",
@@ -58,7 +62,7 @@
 
 <div class=" w-full border-b border-border bg-background/50 backdrop-blur-sm px-4 lg:px-6 hidden md:block">
     <NavigationMenu.Root
-        class="relative z-10 flex max-w-max flex-1 items-center justify-center"
+        class="relative z-50 flex max-w-max flex-1 items-center justify-center"
         viewport={isMobile.current}
     >
         <NavigationMenu.List class="flex h-10 gap-6">
@@ -84,7 +88,7 @@
                                 ></div>
                             {/if}
                         </NavigationMenu.Trigger>
-                        <NavigationMenu.Content>
+                        <NavigationMenu.Content class="rounded-t-none!">
                             <ul class="grid w-50 gap-4 p-2">
                                 <li>
                                     {#each item.children as child (child.title)}

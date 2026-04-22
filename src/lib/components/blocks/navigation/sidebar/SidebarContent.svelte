@@ -60,7 +60,7 @@
                                 </Sidebar.MenuItem>
                             </Collapsible.Root>
                         {:else}
-                            <Sidebar.MenuItem>
+                            <Sidebar.MenuItem class="mb-1 last:mb-0">
                                 {@render NavLink(navItem)}
                             </Sidebar.MenuItem>
                         {/if}

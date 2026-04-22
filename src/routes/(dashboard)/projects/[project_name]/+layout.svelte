@@ -20,6 +20,9 @@
         return match ? match[1] : projectSlug || "Overview";
     });
 
+    const fluidRoutes = ["/deployments", "/logs", "environment"];
+    const isFluid = $derived(fluidRoutes.some((route) => page.url.pathname.endsWith(route)));
+
     interface Props {
         children?: Snippet;
     }
@@ -27,10 +30,10 @@
 </script>
 
 <Page title={title()} blank={true} border={false}>
-    <div>
+    <div class="relative z-40">
         <SubNav />
     </div>
-    <div class="px-4 py-4 lg:px-6">
+    <div class="isolate {isFluid ? '' : 'p-8'}">
         {@render children?.()}
     </div>
 </Page>

@@ -99,6 +99,7 @@
 
 <svelte:head>
     <title>{APP_NAME} - {title ?? "Unknown"}</title>
+    <meta property="og:title" content={`${APP_NAME} - ${title ?? "Unknown"}`} />
 </svelte:head>
 
 <header
