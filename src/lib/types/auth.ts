@@ -1,4 +1,4 @@
-export enum UserRank {
+export enum UserRole {
     User = "user",
     Admin = "admin",
     Dev = "dev",
@@ -9,5 +9,5 @@ export interface User {
     name: string;
     login: string;
     avatar: string;
-    rank: UserRank;
+    role: UserRole;
 }

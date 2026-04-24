@@ -25,7 +25,7 @@
 {/snippet}
 
 {#each items as group (group.title)}
-    {#if !group.ranks || group.ranks.includes(user?.rank)}
+    {#if !group.roles || group.roles.includes(user?.role)}
         <Sidebar.Group>
             <Sidebar.GroupLabel>{group.title}</Sidebar.GroupLabel>
             <Sidebar.GroupContent class="flex flex-col gap-2">

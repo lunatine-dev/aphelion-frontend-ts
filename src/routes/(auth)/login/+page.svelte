@@ -1,10 +1,25 @@
 <script lang="ts">
+    import { PUBLIC_BACKEND_URL } from "$env/static/public";
+
     import * as Card from "$lib/components/ui/card";
     import { Button } from "$lib/components/ui/button";
+
+    let mouseX = $state(0);
+    let mouseY = $state(0);
+
+    function handleMouseMove(e: MouseEvent) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    }
 </script>
 
-<div class="flex h-screen w-full items-center justify-center px-4 bg-background">
-    <Card.Root class="mx-auto w-full max-w-sm border-teal-500/20 bg-slate-950/50 shadow-2xl">
+<div class="relative flex h-screen w-full items-center justify-center overflow-hidden bg-slate-950 px-4">
+    <div class="absolute h-125 w-125 rounded-full bg-teal-500/10 blur-[120px] animate-pulse"></div>
+
+    <div
+        class="pointer-events-none absolute inset-0 opacity-20 mask-[radial-gradient(ellipse_at_center,black,transparent)] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"
+    ></div>
+    <Card.Root class="z-10 mx-auto w-full max-w-sm border-teal-500/20 bg-slate-950/50 backdrop-blur-xl shadow-2xl">
         <Card.Header class="space-y-1">
             <Card.Title class="font-mono text-xl uppercase tracking-widest text-teal-500">Authentication</Card.Title>
             <Card.Description class="font-sans text-slate-400">
@@ -14,6 +29,7 @@
         <Card.Content>
             <div class="grid gap-4">
                 <Button
+                    href={PUBLIC_BACKEND_URL + "/oauth/github"}
                     variant="default"
                     class="w-full bg-teal-600 hover:bg-teal-500 text-white font-mono uppercase tracking-tight"
                 >
@@ -38,8 +54,9 @@
             </div>
             <div class="mt-6 border-t border-slate-800 pt-4">
                 <p class="text-center text-xs text-slate-500 font-sans">
-                    By authenticating, you agree to our <a href="##" class="underline hover:text-teal-500"
-                        >Terms of Service</a
+                    By authenticating, you agree to our <a
+                        href="/legal/terms-of-service"
+                        class="underline hover:text-teal-500">Terms of Service</a
                     >.
                 </p>
             </div>

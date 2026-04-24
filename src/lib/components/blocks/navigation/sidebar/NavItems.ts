@@ -1,5 +1,5 @@
 import type { NavConfig } from "$lib/types/nav";
-import { UserRank } from "$lib/types/auth";
+import { UserRole } from "$lib/types/auth";
 
 import IconDashboard from "@tabler/icons-svelte/icons/dashboard";
 
@@ -29,7 +29,7 @@ export const items: NavConfig = [
     {
         title: "Infrastructure",
         items: [{ title: "Nodes", url: "/infra/nodes", icon: IconServer }],
-        ranks: [UserRank.Dev],
+        roles: [UserRole.Dev],
     },
     {
         title: "System",
@@ -37,6 +37,6 @@ export const items: NavConfig = [
             { title: "Audit Log", url: "/system/audit", icon: IconReport },
             { title: "Settings", url: "/system/settings", icon: IconSettings },
         ],
-        ranks: [UserRank.Dev],
+        roles: [UserRole.Dev],
     },
 ];

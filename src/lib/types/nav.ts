@@ -1,4 +1,4 @@
-import { UserRank } from "./auth";
+import { UserRole } from "./auth";
 
 export interface NavItem {
     title: string;
@@ -12,7 +12,7 @@ export interface NavItem {
 export interface NavGroup {
     title: string;
     items: NavItem[];
-    ranks?: UserRank[]; // Compare to defined user rank. Authentication is done on backend anyway but this is to just visually hide private routes.
+    roles?: UserRole[]; // Compare to defined user role. Authentication is done on backend anyway but this is to just visually hide private routes.
 }
 
 export type NavConfig = NavGroup[];
