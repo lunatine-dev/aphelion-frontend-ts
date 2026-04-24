@@ -1,9 +1,11 @@
-export async function load({}) {
-    const user = {
-        login: "john-doe",
-        name: "John Doe",
-        avatar: "https://placehold.co/200x200",
-        rank: "dev",
+import { redirect } from "@sveltejs/kit";
+
+export async function load({ locals }) {
+    if (!locals.user) {
+        throw redirect(307, "/login");
+    }
+
+    return {
+        user: locals.user,
     };
-    return { user };
 }
