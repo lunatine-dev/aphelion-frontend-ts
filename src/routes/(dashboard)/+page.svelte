@@ -14,8 +14,4 @@
 
 <Page title="Dashboard" padding={true}>
     <Deployments />
-
-    <pre>
-        {JSON.stringify(data.user, null, 4)}
-    </pre>
 </Page>
