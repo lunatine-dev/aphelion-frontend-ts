@@ -4,8 +4,9 @@
     import * as Sidebar from "$lib/components/ui/sidebar";
 
     import DotsVerticalIcon from "@tabler/icons-svelte/icons/dots-vertical";
-    import LogoutIcon from "@tabler/icons-svelte/icons/logout";
+    import DevicesIcon from "@tabler/icons-svelte/icons/devices";
     import SettingsIcon from "@tabler/icons-svelte/icons/settings";
+    import LogoutIcon from "@tabler/icons-svelte/icons/logout";
     import type { User } from "$lib/types/auth";
 
     interface Props {
@@ -62,6 +63,14 @@
                 </DropdownMenu.Label>
                 <DropdownMenu.Separator />
                 <DropdownMenu.Group>
+                    <DropdownMenu.Item>
+                        {#snippet child({ props })}
+                            <a {...props} href="/user/devices" class={`cursor-pointer ${props.class ?? ""}`}>
+                                <DevicesIcon />
+                                Devices</a
+                            >
+                        {/snippet}
+                    </DropdownMenu.Item>
                     <DropdownMenu.Item>
                         {#snippet child({ props })}
                             <a {...props} href="/user/settings" class={`cursor-pointer ${props.class ?? ""}`}>
